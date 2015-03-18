@@ -15,7 +15,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -113,13 +112,21 @@ public class MainActivity extends Activity implements OnClickListener {
 
 							if (data.size() > 0) {
 								contacts.addAll(data);
-							}/* else {
+							} else {
+								String newNum2 = number.substring(0, 5) + " " + number.substring(5);
 								data = getRawContactIdFromNumber(
-										"+91" + number, bos);
+										newNum2, bos);
 								if (data.size() > 0) {
 									contacts.addAll(data);
+								} else {
+									String newNum3 = number.substring(0, 1) + " " + number.substring(1,3) + " " + number.substring(3,6) + " " + number.substring(6);
+									data = getRawContactIdFromNumber(
+											newNum3, bos);
+									if (data.size() > 0) {
+										contacts.addAll(data);
+									}
 								}
-							}*/
+							}
 
 						}
 
